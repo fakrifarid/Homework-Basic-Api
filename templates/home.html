@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+      
+      <h3>
+         <a href = "{{ url_for('home') }}">Flask 
+            SQLAlchemy Homework1</a>
+      </h3>
+      
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+		
+      <h3>Users (<a href = "{{ url_for('new') }}">Add Users
+         </a>)</h3>
+      
+      <table>
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Email</th>
+               <th>Birthdate</th>
+               <th>Age</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for user in Users %}
+               <tr>
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.birthdate }}</td>
+                  <td>{{ user.age }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+   </body>
+</html>
